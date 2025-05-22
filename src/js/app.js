@@ -33,15 +33,40 @@ function render(variables = {}) {
   if (variables.name) {
     nombre = variables.name;
   } else {
-    nombre = " ";
+    nombre = "Nombre";
+  }
+  let apellido = "";
+  if (variables.lastName) {
+    apellido = variables.lastName;
+  } else {
+    apellido = "Apellido";
+  }
+
+  let rol = "";
+  if (variables.role) {
+    rol = variables.role;
+  } else {
+    rol = "role";
+  }
+  let pais = "";
+  if (variables.country) {
+    pais = variables.country;
+  } else {
+    pais = "País";
+  }
+  let ciudad = "";
+  if (variables.city) {
+    ciudad = variables.city;
+  } else {
+    ciudad = "Ciudad";
   }
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name} ${variables.lastname} </h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${nombre} ${apellido} </h1>
+          <h2>${rol}</h2>
+          <h3>${pais}, ${ciudad}</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
