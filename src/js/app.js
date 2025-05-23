@@ -29,18 +29,11 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  let nombre = "";
-  if (variables.name) {
-    nombre = variables.name;
-  } else {
-    nombre = "Nombre";
-  }
-  let apellido = "";
-  if (variables.lastName) {
-    apellido = variables.lastName;
-  } else {
-    apellido = "Apellido";
-  }
+  let fullName = `${variables.name || "Name"} ${variables.lastName ||
+    "Lastname"}`;
+  let role = `${variables.role || "Role"}`;
+  let city = `${variables.city || "City"}`;
+  let country = `${variables.country || "Country"}`;
 
   let rol = "";
   if (variables.role) {
@@ -64,7 +57,7 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${nombre} ${apellido} </h1>
+          <h1>${fullName}  </h1>
           <h2>${rol}</h2>
           <h3>${pais}, ${ciudad}</h3>
           <ul class="position-right">
